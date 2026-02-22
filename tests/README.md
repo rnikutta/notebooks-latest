@@ -41,9 +41,9 @@ Run `testnotebooks.ipynb` to test a collection of other notebooks for runtime fa
 
     Otherwise, you can adjust it as shown in the comment in that cell, to exclude additional directories or notebooks from testing.
 
-    * To run notebooks **in parallel**, set the `workers` variable (in the same cell as `paths` and `exclude`) to the desired number of parallel workers, e.g. `workers = 4`. The default `workers = 1` runs notebooks serially.
+    * To run notebooks **in parallel**, set the `workers` variable (in the same cell as `paths` and `exclude`) to the desired number of parallel workers, e.g. `workers = 4`. The default `workers = 4` runs 4 notebooks in parallel; set `workers = 1` for serial execution.
 
-4. The notebooks will be tested one by one, with the test status printed in <span style="color:green">**green**</span> if a notebook runs error-free, and <span style="color:red">**red**</span> if not. For failed notebooks, the tracelog will be printed out as well.
+4. The notebooks will be tested (by default 4 at a time), with the test status printed in <span style="color:green">**green**</span> if a notebook runs error-free, and <span style="color:red">**red**</span> if not. For failed notebooks, the tracelog will be printed out as well.
 
 5. When all tests have finished, the final cell summarizes the test suite, with simple <span style="color:green">**PASS**</span> / <span style="color:red">**FAIL**</span> flags for each tested notebooks, plus the run-time of each test.
 
@@ -80,14 +80,17 @@ OR
     * Run the test suite via:
 
         ```
-        # Run serially (default):
+        # Run with default 4 parallel workers:
         python ./testnotebooks.py
 
-        # Run with N parallel workers, e.g. 4:
-        python ./testnotebooks.py -w 4
+        # Run with a different number of workers, e.g. 8:
+        python ./testnotebooks.py -w 8
+
+        # Run serially:
+        python ./testnotebooks.py -w 1
         ```
 
-        Use the `-w N` / `--workers N` flag to run up to N notebooks simultaneously. The default (`-w 1`) is serial execution.
+        Use the `-w N` / `--workers N` flag to set the number of notebooks run simultaneously. The default is `-w 4`.
 
   You will see something akin to this:
   

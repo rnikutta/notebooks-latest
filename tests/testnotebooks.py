@@ -400,7 +400,7 @@ def get_nbs(paths,include=('/**/*.ipynb',),exclude=('/**/*_tested.ipynb',)):
     return nbs
 
 
-def run(nbs, plain=False, workers=1):
+def run(nbs, plain=False, workers=4):
 
     """Run *.ipynb files given in the `nbs` list via nbconvert and report PASS/FAIL test matrix.
 
@@ -477,7 +477,7 @@ def run(nbs, plain=False, workers=1):
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Run Jupyter notebook test suite.')
-    parser.add_argument('-w', '--workers', type=int, default=1, metavar='N',
+    parser.add_argument('-w', '--workers', type=int, default=4, metavar='N',
                         help='Number of parallel worker processes (default: 1 = sequential)')
     args = parser.parse_args()
 
