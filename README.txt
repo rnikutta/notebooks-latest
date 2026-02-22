@@ -19,11 +19,11 @@
            Welcome to the Astro Data Lab Jupyter Notebook repository
 
 
-                       web: https://datalab.noao.edu
-                    github: https://github.com/noaodatalab
+                       web: https://datalab.noirlab.edu
+                    github: https://github.com/astro-datalab
 
 
-                        Version of this file: 20191204
+                        Version of this file: 20230728
                         
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -36,71 +36,92 @@ This file contains information on:
 
 You can follow the order below if you are just getting started.
 
-Generally, all notebooks should work with Python 3 and some may still 
-work with Python 2 (we no longer develop for Python 2). Furthermore, an 
-html version of the notebooks is included in order to show them fully
-rendered.
+All notebooks are developed for Python 3. Furthermore, an HTML version
+of the notebooks is included in order to show them fully rendered.
 
 DEFAULT DATALAB NOTEBOOKS
 =========================
 
 01- GETTING STARTED
 
-The notebooks in "01_GettingStartedWithDatalab/" provide a 101 intro to
-Python, Jupyter and SQL, and show for Data Lab basic steps such as
-loading modules, authenticating, making a list of available datasets,
-an example query, and an example image cutout. It is meant as a
-reference for these general basic steps. It shows how to obtain the
-statistics of catalog tables in order to determine the row and column
-counts while avoiding to count all rows on large tables, which can be
-slow.
+The notebooks in "01_GettingStartedWithDatalab/" provide a 101 intro
+to Python, Jupyter and SQL, and show, for Data Lab, some basic steps
+such as loading modules, authenticating, making a list of available
+datasets, an example query, and an example image cutout. It also shows
+how to obtain the statistics of catalog tables in order to determine
+approximate row and column counts.
 
 02- DATA ACCESS OVERVIEW
 
 The notebook in "02_DataAccessOverview/" provides users with examples
 of typical functions and commands to explore and use some of the main
-datasets hosted by the Data Lab. It is a reference for scientific
+datasets hosted by Astro Data Lab. It is a reference for scientific
 applications, though not as detailed as the specific science examples
-given below (item 4).
+given below (item 03).
 
 03- SCIENCE EXAMPLES
 
-The "03_ScienceExamples" folder contains notebooks that showcase
+The "03_ScienceExamples/" folder contains notebooks that showcase
 scientific applications using the datasets hosted at Data Lab. Each
 science application contains at least one notebook, and each
 survey/dataset is featured in at least one notebook. In some
 instances, the same science case is featured with two or more surveys.
 
-- DwarfGalaxies: discover dwarf galaxies as stellar overdensities in
-  the DES DR1, NSC DR1 and SMASH datasets
+- DESI: introduction to the DESI EDR dataset at Data Lab and a comparison
+  between SDSS and DESI spectra.
 
-- ExploringM31: explore the M31 galaxy with the PHAT dataset
+- DwarfGalaxies: discover dwarf galaxies as stellar overdensities in
+  the DELVE DR1 and DR2, DES DR1, NSC DR1 and DR2, and SMASH datasets.
+
+- EmLineGalaxies: two notebooks highlight how to obtain and stack
+  spectra using the Data Lab spectro service, and how to detect
+  outliers in the BPT diagnostic diagram.
+
+- ExploringM31: explore the M31 galaxy with the PHAT dataset.
+
+- GNIRS_DQS_SpectralInventory: show how to access the Gemini Near Infrared
+  Spectrograph - Distant Quasar Survey (GNIRS-DQS) at Data Lab and
+  example spectra plots.
+
+- GOGREEN_GalaxiesInRichEnvironments: two notebooks showcase data
+  access and image cutout services with the GOGREEN and GCLASS first
+  data release, the first Gemini Large and Long program whose
+  high-level science products are hosted at Data Lab.
 
 - GalacticStructure: probe stellar populations in different parts of
-  the Galactic Plane using the DECaPS dataset
+  the Galactic Plane using the DECaPS dataset, and in the SMASH
+  fields. Another notebook explores star clusters in Gaia,
+  including animated visualizations.
 
 - LargeScaleStructure: inspect large-scale structures using
   spectroscopic information from SDSS combined with photometric
-  information from the DESI pre-imaging Legacy Survey (LS)
+  information from the DESI pre-imaging Legacy Surveys (LS).
+
+- MagellanicClouds: examine the stellar substructures that surround
+  the Magellanic Clouds using the VHS and Gaia datasets.
 		     
 - Pal5TidalTails: identify tidal tails of the globular cluster Palomar
-  5 in the NSC DR1 catalog, as well as a jointly with Gaia DR2 to
-  explore the proper motion of the cluster and its tails
+  5 in the NSC catalog, as well as a jointly with Gaia to
+  explore the proper motion of the cluster and its tails.
 
 - SpectralEnergyDistributions: (1) use narrow-band filters to construct
-  SEDs of objects from the S-PLUS DR1 dataset, and (2) compare the mid-
-  infrared photometry from unWISE DR1 and AllWISE (3.4 & 4.6 micron)
+  SEDs of objects from the S-PLUS dataset, and (2) compare the mid-
+  infrared photometry from unWISE and AllWISE (3.4 & 4.6 micron).
 
 - StarGalQSOSeparation: use photometric properties (colors,
   morphology/shape parameters, etc.) to distinguish between stars,
-  galaxies, and QSOs in the DES DR1 and LS DR7 datasets
+  galaxies, and QSOs in the DES and LS datasets.
 
 - TimeSeriesAnalysisRrLyraeStar: analyze time-series to measure the
-  period of RR Lyrae stars using photometry from SMASH
+  period of RR Lyrae stars using photometry from SMASH.
+
+- WhiteDwarfs: search for and analyze white dwarfs and other peculiar
+  objects possibly ejected from the Galactic disk at very high velocities
+  (> 400 km/s).
 
 The ScienceExamples notebooks are located here:
 
-   https://datalab.noao.edu/notebooks/web/ScienceExamples/
+   https://github.com/astro-datalab/notebooks-latest/tree/master/03_ScienceExamples/
 
 04- HOW-TOS
 
@@ -111,29 +132,47 @@ functionality is shown for the full set of keywords and options for
 the following:
 
 - AuthClient: authenticating with the Data Lab
-- CrossmatchTables: crossmatching a user-provided table against a table hosted by Data Lab
-- FileService: using files rather than database tables, including spectra from SDSS/BOSS
-- QueryClient: sending queries to the databases and retrieving results
-- RowVsCstore: using row-stored versus column-stored database tables
-- SIA service: obtaining cutouts using a Simple Image Access service [future]
-- StoreClient: storing data in virtual storage (vospace or mydb)
+- CrossmatchTables: crossmatching a user-provided table against a table
+		    hosted by Data Lab, and using pre-crossmatched tables.
+- DataReduction: showing how to perform GMOS imaging data reduction and GMOS
+		 longslit spectroscopy data reduction using the Gemini DRAGONS
+		 and Gemini Pyraf packages.
+- FileService: using files rather than database tables, including spectra from
+	       SDSS/BOSS.
+- QueryClient: sending queries to the databases and retrieving results.
+- SPARCL: discovering, retrieving, analyzing, and plotting spectra (SDSS, BOSS,
+	  DESI) using the SPARCL service.
+- SiaService: obtaining cutouts using a Simple Image Access service.
+- StoreClient: storing data in virtual storage (VOSpace or MyDB).
 
 The How-To notebooks are located here:
 
-   https://datalab.noao.edu/notebooks/web/HowTos/
+   https://github.com/astro-datalab/notebooks-latest/tree/master/04_HowTos/
 
 05- CONTRIB
 
-The "05_Contrib/" directory holds user-contributed notebooks to Data
-Lab. Please see ./CONTRIBUTING file for detailed instructions.
+The "05_Contrib/" directory holds community-contributed notebooks to
+Data Lab, including ANTARES example notebooks. Please see
+./CONTRIBUTING file for detailed instructions.
 
 06 - EPO
 
 The "06_EPO/" directory provides "Education and Public Outreach"
 notebooks, aimed at school students and teachers interested in
-astronomical research and in teaching astronomy. The notebooks were
-originally developed for the "Teen Astronomy Café" activities
-organized jointly by the LSST and NOAO EPO departments.
+astronomical research and in teaching astronomy. The currently three
+sub-directories contain:
+
+- TeenAstronomyCafe: notebooks originally developed for the
+  "TeenAstronomy Café" activities organized jointly by the LSST and
+  NOIRLab's outreach and engagement departments (middle/high school or
+  undergraduate astronomy)
+
+- e-TeenAstronomyCafe: same, but these notebooks are executable at
+  Colab
+
+- LaSerenaSchoolForDataScience: notebooks developed for the La Serena
+  School for Data Science (undergraduate & graduate level), including
+  machine learning, classification problems, and more.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -145,12 +184,13 @@ notebooks/ directory during account creation. Over time, as the
 default notebooks evolve, they will diverge from those in notebooks/.
 
 To obtain a full copy of the newest default notebooks, click in the
-top-right corner of the Jupyter dashboard on "New", then on "Terminal",
-and use the `getlatest` function:
+top-left corner of the JupyterLab interface dashboard on the "+" icon,
+which opens a new launcher page. Then, in the "Other" section, click
+on the "Terminal" option, where you can use the `getlatest` function:
 
-# without argument: copies to a directory named with current date and time
+# without argument: copies the latest notebooks to a directory named with current date and time
 username@datalab>getlatest
-Copied /dlusers/username/notebooks-latest/ to notebooks_20180709_212650/
+Copied /dlusers/username/notebooks-latest/ to notebooks_20211118_212650/
 
 # with target directory as argument
 username@datalab>getlatest mydir
@@ -161,10 +201,9 @@ cell. Simply running 'grep version foofile.ipynb' will show the
 version of the given file.
 
 Finally, copies of this README.txt file as well as the latest
-notebooks are kept on:
-
-- the Data Lab website: https://datalab.noao.edu/notebooks/web/
-- the Data Lab Github account: https://github.com/noaodatalab/notebooks-latest
+notebooks are kept at the Data Lab GitHub account:
+https://github.com/astro-datalab/notebooks-latest/ from where you can
+freely clone them.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -172,14 +211,14 @@ DOCUMENTATION & RESOURCES
 =========================
 
 The User Manual includes a tutorial on using Jupyter Notebooks with the Data Lab:
-https://datalab.noao.edu/docs/manual/UsingTheNOAODataLab/JupyterNotebooks/JupyterNotebooks.html
+https://datalab.noirlab.edu/docs/manual/UsingAstroDataLab/JupyterNotebooks/JupyterNotebooks.html
 
 The User Manual also includes additional information on the Science Examples 
 featured in the notebooks:
-https://datalab.noao.edu/docs/manual/UsingTheNOAODataLab/ScienceExamples/
+https://datalab.noirlab.edu/docs/manual/UsingAstroDataLab/ScienceExamples/index.html
 
 Helpful advice on using SQL and writing queries can be found here: 
-https://datalab.noao.edu/docs/manual/UsingTheNOAODataLab/SQLGotchas/SQLGotchas.html
+https://datalab.noirlab.edu/docs/manual/UsingAstroDataLab/SQLGotchas/SQLGotchas/SQLGotchas.html
 
 Lastly, please visit the Helpdesk to see the FAQs or ask your questions: 
-https://datalab.noao.edu/help/
+https://datalab.noirlab.edu/help/
