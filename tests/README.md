@@ -1,4 +1,4 @@
-*Version:* 20240819
+*Version:* 20260222
 
 *Author:* Robert Nikutta \<robert.nikutta@noirlab.edu\>, Data Lab Team \<datalab@noirlab.edu\>
 
@@ -38,8 +38,10 @@ Run `testnotebooks.ipynb` to test a collection of other notebooks for runtime fa
     Otherwise adjust `paths` as shown in the comment in that cell.
 
     * If you are OK with the defaults, leave the `exclude` variable as-is **(recommended)**.
-    
+
     Otherwise, you can adjust it as shown in the comment in that cell, to exclude additional directories or notebooks from testing.
+
+    * To run notebooks **in parallel**, set the `workers` variable (in the same cell as `paths` and `exclude`) to the desired number of parallel workers, e.g. `workers = 4`. The default `workers = 1` runs notebooks serially.
 
 4. The notebooks will be tested one by one, with the test status printed in <span style="color:green">**green**</span> if a notebook runs error-free, and <span style="color:red">**red**</span> if not. For failed notebooks, the tracelog will be printed out as well.
 
@@ -75,8 +77,18 @@ OR
 
     * `cd` into `notebooks-latest/tests/`
     * Either accept the default `paths` and `exclude` variables, or adjust them by editing them towards the end of the `testnotebooks.py` file. **Note: the `.py` file, not `.ipynb`!**
-    * Run the test suite via: `python ./testnotebooks.py`
-  
+    * Run the test suite via:
+
+        ```
+        # Run serially (default):
+        python ./testnotebooks.py
+
+        # Run with N parallel workers, e.g. 4:
+        python ./testnotebooks.py -w 4
+        ```
+
+        Use the `-w N` / `--workers N` flag to run up to N notebooks simultaneously. The default (`-w 1`) is serial execution.
+
   You will see something akin to this:
   
   ![Terminal](./figures/view_terminal.png)
